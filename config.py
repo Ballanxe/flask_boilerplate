@@ -2,14 +2,6 @@ import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
-def get_env_variable(name):
-    try:
-        return os.environ[name]
-    except KeyError:
-        message = "Expected environment variable '{}' not set.".format(name)
-        raise Exception(message)
-
-
 class Config(object):
     DEBUG = True
     TESTING = False
@@ -40,12 +32,6 @@ class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgres://{user}:{pw}@{url}/{db}'.format(
         user=POSTGRES_USER, pw=POSTGRES_PW, url=POSTGRES_URL, db=POSTGRES_DB)
     CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")
-
-
-
-# class StagingConfig(Config):
-#     DEVELOPMENT = True
-#     DEBUG = True
 
 
 class DevelopmentConfig(Config):
