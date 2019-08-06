@@ -5,6 +5,7 @@ Si no se conecta muestra el error en el navedador. De lo contrario imprime It wo
 
 Configurar el venv y ejecutar 
 ```
+$ export FLASK_DEBUG=1   
 $ flask run
 ```
 
@@ -28,6 +29,12 @@ $ flask db upgrade
 Mas info aca https://github.com/miguelgrinberg/flask-migrate/
 
 # Celery and Rabbit
+
+Para ejecutar los workers de celery correr 
+```
+$ celery worker -A app.celery --loglevel=info
+
+```
 
 
 
