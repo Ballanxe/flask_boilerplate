@@ -29,7 +29,7 @@ class ProductionConfig(Config):
     POSTGRES_USER = os.environ.get("POSTGRES_USER")
     POSTGRES_PW = os.environ.get("POSTGRES_PW")
     POSTGRES_DB = os.environ.get("POSTGRES_DB")
-    SQLALCHEMY_DATABASE_URI = 'postgres://{user}:{pw}@{url}/{db}'.format(
+    SQLALCHEMY_DATABASE_URI = 'postgresql://{user}:{pw}@{url}/{db}'.format(
         user=POSTGRES_USER, pw=POSTGRES_PW, url=POSTGRES_URL, db=POSTGRES_DB)
     CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")
 
